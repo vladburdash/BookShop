@@ -5,8 +5,24 @@
 #include "BookShop.h"
 #include "Books.h"
 #include "Application.h"
+#include "Publisher.h"
 
 using namespace std;
+//unsigned int Publisher::index = 0;
+//Publisher* Publisher::publisherList[3] = { 0,0,0};
+
+void getSumAllBooks(Book bk)
+{
+	int generalSum;
+	generalSum = bk.getPrice() * bk.getCount();
+	cout << "\nGeneral sum of all books: " << generalSum;
+}
+
+void getSumAllBooks(Book &bk, int generalSum)
+{
+	generalSum = bk.getPrice() * bk.getCount();
+	cout << "\nGeneral sum of all books: " << generalSum;
+}
 
 int main()
 {
@@ -58,6 +74,7 @@ int main()
 	}*/
 
 
+	Book bookAllSum;
 
 	Book* book1 = new Book;
 	Book* book2 = new Book;
@@ -65,26 +82,27 @@ int main()
 	Book* book4 = new Book;
 	Book* book5 = new Book;
 
-	Reader reader1(1000);
-	Reader reader2(5000);
-	Reader reader3(10000);
-	Reader reader4(300);
-	Reader reader5(40000);
+	// 3 ways to create odject with constructor
+	Reader reader1(100);
+	Reader reader2 = Reader(1000);
+	Reader* reader3 = new Reader(10000);
 
-	Reader* ptrBook;
-	ptrBook = &reader2;
-	//Reader reader2(2000); = new Reader;
-	/*Reader* reader3 = new Reader;
-	Reader* reader4 = new Reader;
-	Reader* reader5 = new Reader;
-	Reader* reader6 = new Reader;*/
-	//Application apl[10];
+	//Reader reader3(5000);
+	Reader reader4(5000);
+	Reader reader5(300);
+	Reader reader6(40000);
+
+	Reader* ptrReader;
+	ptrReader = &reader4;
+
+	
+
 	Application application1;
 	Application application[10];
-	//Book arr[20];
 	int count_of_books = 0;
 	int option = 0, i = 0;
 	string answer;
+	int Sum = 0;
 	for (;;)
 	{
 		//intro();
@@ -94,7 +112,10 @@ int main()
 		cout << "\n\t\tPress 3 to Order Book";
 		cout << "\n\t\tPress 4 to Pay Order";
 		cout << "\n\t\tPress 5 to View All Orders";
+		cout << "\n\t\tPress 5 to View All Orders";
 		cout << "\n\t\tPress 6 to Exit";
+		cout << "\n\t\tPress 7 to Calculate Sum of All Book";
+		cout << "\n\t\tPress 8 to View All Constructors";
 		cout << "\n\t\t----------------------------------------\n";
 		cout << "\n\t\tOption: ";
 		cin >> option;
@@ -119,7 +140,7 @@ int main()
 				reader1.apply(*book1);
 
 				// pointer to instance of the class
-				//ptrBook->apply(*book2);
+				//ptrReader->apply(*book2);
 				application[i].Create(reader1, *book1);
 				application[i].writeApplication();
 				i++;
@@ -139,10 +160,22 @@ int main()
 			break;
 		case 6: exit(0);
 			break;
+		case 7:
+			bookAllSum.getBookDetails();
+			getSumAllBooks(bookAllSum);
+			getSumAllBooks(bookAllSum, Sum);
+			break;
+		case 8:
+
+			break;
 		default:cout << "\a";
 		}
 	}
-
+	//Reader *reader = { new Reader("Jhon") };
+	
+	//Publisher pub("fwewf", "GarryPotter", "Ranok");
+	/*Book* book[3] = {new Book("GarryPotter"), new Book("LordOfRings"), new Book("Kobzar")};
+	Publisher publisher1( reader[0], book[1], "Ranok");*/
 
 	/*
 	reader1.setInfo();

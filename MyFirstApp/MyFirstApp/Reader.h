@@ -17,10 +17,29 @@ private:
 	//Application apllications[10];
 	//int applicationsCount = 0;
 public: 
-	//int count_of_readers = 0;
+	
+	
+	Reader()
+	{
+		cout << "It's constructor without parametres;";
+	}
+
+	Reader(const Reader& readerAge)
+	{
+		Age = readerAge.Age;
+		cout << "It's copy constructer";
+	}
+
 	Reader(int myMoney)
 	{
 		amountOfMoney = myMoney;
+	}
+
+	Reader(string Name)
+	{
+		string* ptr;
+		ptr = new string;
+		*ptr = Name;
 	}
 	int writeToFile();
 	int readFromFile();

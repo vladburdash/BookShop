@@ -213,7 +213,7 @@ void Reader::payOrder()
 				}
 				else
 				{
-					cout << "Don't enough money";
+					cout << "Don't enough money" << endl;
 				}
 				break;
 			}

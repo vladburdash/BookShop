@@ -138,6 +138,15 @@ void Book::getInfo(int bkID, string BookName, string AuthorName)
 	authorName = AuthorName;
 }
 
+int Book::getPrice()
+{
+	return price;
+}
+
+int Book::getCount()
+{
+	return numCopies;
+}
 //string Book::getBookName()
 //{
 //	return bookName;

@@ -145,6 +145,7 @@
     <ClCompile Include="BookShop.cpp" />
     <ClCompile Include="MyFirstApp.cpp" />
     <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Publisher.cpp" />
     <ClCompile Include="Reader.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +153,7 @@
     <ClInclude Include="Books.h" />
     <ClInclude Include="BookShop.h" />
     <ClInclude Include="Person.h" />
+    <ClInclude Include="Publisher.h" />
     <ClInclude Include="Reader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
