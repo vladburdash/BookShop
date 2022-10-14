@@ -26,14 +26,11 @@ void Book::getBookDetails()
 
 void Book::setBook()
 {
+	cout << "Book ID: " << bookID;
 	cout << "Title of book: " << bookName;
-	//cin >> bookName;
 	cout << "Author of book: " << authorName;
-	//cin >> authorName;
 	cout << "Price of book: " << price;
-	//cin >> price;
 	cout << "Count of book: " << numCopies;
-	//cin >> numCopies;
 
 }
 

@@ -18,10 +18,16 @@ public:
 		ptr = new string;
 		*ptr = BookName;
 	}
+
 	Book()
 	{
 		string* ptr;
 		ptr = new string;
+	}
+
+	~Book()
+	{
+		//cout << "\nDestructor executed\n"; 
 	}
 	void setBook();
 	void getBookDetails();

@@ -8,9 +8,6 @@
 #include<conio.h>
 void Application::Create(Reader reader, Book bk) {
 	
-	//bk->getInfo(bookid, title, author);
-	//Book newBook = Book(title, author, bookid);
-	
 	ReaderName = reader.getReaderName();
 	ReaderSurname = reader.getReaderSurname();
 	ifstream file("book_title_author.txt");

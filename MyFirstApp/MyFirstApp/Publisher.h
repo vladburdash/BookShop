@@ -6,36 +6,24 @@ using namespace std;
 class Publisher
 {
 private:
-	string *publisherName;
-	string *readerName;
-	string *bookName;
-	static unsigned int index;
-	static Publisher* publisherList[3];
+	string publisherName;
+	Reader* reader;
+	Book* book;
+	//const int ISBN;
+	//int& telephone;
+	
 public:
-	/*Publisher(string *ReaderName, string *BookName, string PublisherName) :
-		readerName(ReaderName), bookName(BookName), publisherName(PublisherName)
-	{
-		if (index < 5)
-		{
-			publisherName = PublisherName;
-			publisherList[index] = this;
-			++index;
-		}
-		else
-		{
-			cout << "Too much Publishers" << endl;
-		}
-		
-	};*/
-	Publisher(string *ReaderName, string *BookName, string *PublisherName) /*:
-		readerName(ReaderName), bookName(BookName), publisherName(PublisherName)*/
-	{
-		readerName = ReaderName;
-		bookName = BookName;
-		publisherName = PublisherName;
-	};
+
+	Publisher(Reader* rd, Book* bk, string PubName) :
+		reader(rd), book(bk), publisherName() {};
+
+	// constructor with init list
+
+	//Publisher(int i, int&j) : ISBN(ISBN), telephone(telephone) {}
+
+
 	~Publisher()
 	{
-		cout << "Publisher is deleted" << endl;
+
 	}
 };

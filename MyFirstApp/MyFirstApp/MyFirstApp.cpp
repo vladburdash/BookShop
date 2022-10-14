@@ -9,7 +9,7 @@
 
 using namespace std;
 //unsigned int Publisher::index = 0;
-//Publisher* Publisher::publisherList[3] = { 0,0,0};
+//Publisher* Publisher::publisherList[4] = { 0,0,0,0 };
 
 void getSumAllBooks(Book bk)
 {
@@ -87,18 +87,28 @@ int main()
 	Reader reader2 = Reader(1000);
 	Reader* reader3 = new Reader(10000);
 
-	//Reader reader3(5000);
 	Reader reader4(5000);
 	Reader reader5(300);
-	Reader reader6(40000);
-
+	
 	Reader* ptrReader;
 	ptrReader = &reader4;
 
-	
+	// composision
 
+	BookShop Yakaboo;
+	
 	Application application1;
 	Application application[10];
+
+	// aggregation
+	Application application5(&reader5, *book3);
+	application5.Create(reader5, *book5);
+	application5.writeApplication();
+
+	// association
+	Publisher publisher1(reader3, book3, "Ranok");
+	Publisher publisher2(reader3, book4, "BookWorld");
+
 	int count_of_books = 0;
 	int option = 0, i = 0;
 	string answer;
@@ -115,7 +125,7 @@ int main()
 		cout << "\n\t\tPress 5 to View All Orders";
 		cout << "\n\t\tPress 6 to Exit";
 		cout << "\n\t\tPress 7 to Calculate Sum of All Book";
-		cout << "\n\t\tPress 8 to View All Constructors";
+		cout << "\n\t\tPress 8 to View Composition";
 		cout << "\n\t\t----------------------------------------\n";
 		cout << "\n\t\tOption: ";
 		cin >> option;
@@ -130,7 +140,8 @@ int main()
 				book1->writeBook(*book1, i, count_of_books - 1);
 			}
 			break;
-		case 2: book1->showAllBooks(*book1);
+		case 2:
+			book1->showAllBooks(*book1);
 			break;
 		case 3:
 			system("cls");
@@ -138,10 +149,11 @@ int main()
 			do
 			{
 				reader1.apply(*book1);
-
 				// pointer to instance of the class
 				//ptrReader->apply(*book2);
-				application[i].Create(reader1, *book1);
+				//application[i].Create(reader1, *book1);
+
+				// agreggation
 				application[i].writeApplication();
 				i++;
 				cout << "Would you like buy more books?  (yes/no)" << endl;
@@ -166,52 +178,16 @@ int main()
 			getSumAllBooks(bookAllSum, Sum);
 			break;
 		case 8:
-
+			Yakaboo.calculatePrise();
+			break;
+		case 9:
+			/*reader3->getInfo();
+			reader3->apply(*book3);*/
 			break;
 		default:cout << "\a";
 		}
 	}
-	//Reader *reader = { new Reader("Jhon") };
 	
-	//Publisher pub("fwewf", "GarryPotter", "Ranok");
-	/*Book* book[3] = {new Book("GarryPotter"), new Book("LordOfRings"), new Book("Kobzar")};
-	Publisher publisher1( reader[0], book[1], "Ranok");*/
-
-	/*
-	reader1.setInfo();
-
-
-	*/
-	/*try {
-		ptr = new Book[20];
-	}
-	catch (bad_alloc xa)
-	{
-		cout << " Вийняткова Ситуація \n ";
-		return 1;
-	}*/
-
-	/*ptr = new int(count_of_readers);
-	*/
-
-
-	//dynamic array
-	//Book* bk1 = new Book;
-	//Book* ptr=0, i;
-	//for (int i = 0; i < 2; i++)
-	//{
-	//	ptr[i].getBookDetails();
-	//	ptr[i] = *bk1;
-	//	ptr[i].writeBook(bk1);
-	//}
-
-	//for (int i = 0; i < 2; i++)
-	//{
-
-	//	ptr[i].readBook(bk1);
-	//}
-	////book.showAllBooks(book);
-	////application1.Create(bk1);
 	//delete []ptr;
 	//delete bk1;
 	return 0;

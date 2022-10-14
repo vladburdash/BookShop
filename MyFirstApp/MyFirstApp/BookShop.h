@@ -4,10 +4,11 @@
 using namespace std;
 
 class BookShop {
-	Book books[20];
-	int BooksCount = 0;
+private:
+	Book anyBook;
+	int BooksPrice;
 public:
-	void AddBook();
+	void calculatePrise();
 	void ShowAll();
 };
 

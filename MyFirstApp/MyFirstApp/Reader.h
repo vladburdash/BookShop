@@ -21,13 +21,13 @@ public:
 	
 	Reader()
 	{
-		cout << "It's constructor without parametres;";
+		//cout << "It's constructor without parametres;";
 	}
 
 	Reader(const Reader& readerAge)
 	{
 		Age = readerAge.Age;
-		cout << "It's copy constructer";
+		//cout << "It's copy constructer";
 	}
 
 	Reader(int myMoney)
@@ -41,6 +41,10 @@ public:
 		ptr = new string;
 		*ptr = Name;
 	}
+
+
+	~Reader() {}
+
 	int writeToFile();
 	int readFromFile();
 	void apply(Book bk); 
