@@ -63,20 +63,20 @@ void Application::ShowAllApplication() {
 
 void Application::writeApplication()
 {
-	ofstream file("book_orders.txt", ios::app);
-	if (file.fail())
+	ofstream file1("book_orders.txt", ios::app);
+	if (file1.fail())
 	{
 		cerr << "Error opening file";
 	}
 
 	else
 	{
-		file << "\n" << ReaderName << endl;
-		file << ReaderSurname << endl;
-		file << BookName << endl;
-		file << BookAuthor << endl;
-		file << BookPrice << endl;
-		file << BookCount;
+		file1 << "\n" << ReaderName << endl;
+		file1 << ReaderSurname << endl;
+		file1 << BookName << endl;
+		file1 << BookAuthor << endl;
+		file1 << BookPrice << endl;
+		file1 << BookCount;
 	}
-	file.close();
+	file1.close();
 }

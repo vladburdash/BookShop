@@ -1,13 +1,63 @@
-//#pragma once
-//#include<iostream>
-//using namespace std;
-//class Person
-//{
-//	string Name;
-//	string Surname;
-//	int Age;
-//	
-//public:
-//	void setPerson();
-//	void getPerson();
-//};
+#pragma once
+#include<iostream>
+using namespace std;
+class Person
+{
+protected:
+	string Name;
+	string Surname;
+	int Age;
+	string Sex;
+	string Email;
+public:
+	Person() {}
+	Person(string Name, string Surname, int Age, string Sex, string Email)
+	{
+		this->Name = Name;
+		this->Surname = Surname;
+		this->Age = Age;
+		this->Sex = Sex;
+		this->Email = Email;
+	}
+	void showPerson();
+	void getPerson();
+};
+
+class Employee {
+protected:
+	int Salary;
+	string Company;
+public:
+	Employee(int salary, string company)
+	{
+		Salary = salary;
+		Company = company;
+	}
+	void showEmployee()
+	{
+		cout << "Salary: " << Salary << " uah" << endl;
+		cout << "Company: " << Company << endl;
+	}
+};
+
+
+
+class Accountant: public Person, public Employee {
+private:
+	string accountantSoftware;
+public:
+	Accountant(string AccountantSoftware, string Name, string Surname,
+		int Age, string Sex, string Email, int salary, string company):
+		Person(Name, Surname, Age, Sex, Email),
+		Employee(salary, company) 
+	{
+		accountantSoftware = AccountantSoftware;
+	}
+	void showAccountant()
+	{
+		cout << "Soft: " << accountantSoftware << endl;
+		showPerson();
+		showEmployee();
+
+	}
+};

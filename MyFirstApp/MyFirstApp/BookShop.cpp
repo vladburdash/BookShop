@@ -7,6 +7,9 @@ void BookShop::calculatePrise()
 	cout << "The Price of Books : " << BooksPrice;
 }
 
-void BookShop::ShowAll()
-{
-}
+//void BookShop::ShowBookShop()
+//{
+//	cout << "Site: " << site << endl;
+//	cout << "Owner: " << owner << endl;
+//}
+

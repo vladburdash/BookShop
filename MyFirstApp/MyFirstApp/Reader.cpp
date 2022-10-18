@@ -23,16 +23,22 @@ void Reader::getInfo() {
 }
 
 
-
 string Reader::getReaderName()
 {
 	return Name;
 }
 
+
 string Reader::getReaderSurname()
 {
 	return Surname;
 }
+
+int Reader::getAmountOfMoney()
+{
+	return amountOfMoney;
+}
+
 
 void Reader::setInfo() {
 	cout << "Name: " << Name << endl << "Surname: " << Surname << endl
@@ -92,8 +98,10 @@ int Reader::readFromFile() {
 	return 0;
 }
 
+// method apply an application
 void Reader::apply(Book bk)
 {
+
 	int ReaderBookID = 0, ReaderCountOfBooks = 0, bookID = 0, price = 0, NumberOfCopies;
 	string title;
 	string author;
@@ -119,6 +127,7 @@ void Reader::apply(Book bk)
 			fp >> NumberOfCopies;
 			bk.getInfo(bookID, title, author);
 
+			// if haven't book to buy
 			if (ReaderBookID == bookID & NumberOfCopies < ReaderCountOfBooks)
 			{
 				//system("cls");
@@ -126,6 +135,7 @@ void Reader::apply(Book bk)
 				break;
 			}
 
+			// if bookID from file = bopkID from console
 			if (ReaderBookID == bookID)
 			{
 				//system("cls");
@@ -154,6 +164,7 @@ void Reader::apply(Book bk)
 			}
 			
 		}
+		// if book doesn't exist
 		if (fp.eof() || ReaderBookID != bookID)
 		{
 			//system("cls");
@@ -165,6 +176,7 @@ void Reader::apply(Book bk)
 	fp.close();
 }
 
+// method to pay order 
 void Reader::payOrder()
 {
 	string ReaderName;
@@ -227,23 +239,4 @@ void Reader::payOrder()
 	file.close();
 }
 
-
-//bool Reader::apply(Application application) {
-//	this->apllications[applicationsCount] = application;
-//	applicationsCount++;
-//	return true;
-//}
-//
-//void Reader::ShowApl()
-//{
-//	for (int i = 0; i < applicationsCount; i++)
-//	{
-//		cout << "Order: " << endl;
-//		cout << "Name: " << Name << endl;
-//		cout << "Surname: " << Surname << endl;
-//		apllications[i].ShowApplication();
-//	}
-//}
-
-// application
 

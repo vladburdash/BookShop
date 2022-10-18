@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Administration.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="Books.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="Reader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Administration.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Books.h" />
     <ClInclude Include="BookShop.h" />

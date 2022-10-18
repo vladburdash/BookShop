@@ -26,11 +26,11 @@ void Book::getBookDetails()
 
 void Book::setBook()
 {
-	cout << "Book ID: " << bookID;
-	cout << "Title of book: " << bookName;
-	cout << "Author of book: " << authorName;
-	cout << "Price of book: " << price;
-	cout << "Count of book: " << numCopies;
+	cout << "Book ID: " << bookID << endl;
+	cout << "Title of book: " << bookName << endl;
+	cout << "Author of book: " << authorName << endl;
+	cout << "Price of book: " << price << endl;
+	cout << "Count of book: " << numCopies << endl;
 
 }
 
@@ -144,12 +144,3 @@ int Book::getCount()
 {
 	return numCopies;
 }
-//string Book::getBookName()
-//{
-//	return bookName;
-//}
-//
-//string Book::getAuthorName()
-//{
-//	return authorName;
-//}
