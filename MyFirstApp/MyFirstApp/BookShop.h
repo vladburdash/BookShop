@@ -8,7 +8,6 @@ class BookShop: public Reader, public Book {
 private:
 	Book anyBook;
 	int BooksPrice;
-	
 public:
 	BookShop() {}
 	void calculatePrise();

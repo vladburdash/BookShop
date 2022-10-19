@@ -19,8 +19,14 @@ public:
 		this->Sex = Sex;
 		this->Email = Email;
 	}
+	
+
 	void showPerson();
 	void getPerson();
+	
+
+	
+	~Person(){}
 };
 
 class Employee {
@@ -28,6 +34,7 @@ protected:
 	int Salary;
 	string Company;
 public:
+	Employee(){}
 	Employee(int salary, string company)
 	{
 		Salary = salary;
@@ -38,6 +45,7 @@ public:
 		cout << "Salary: " << Salary << " uah" << endl;
 		cout << "Company: " << Company << endl;
 	}
+	~Employee(){}
 };
 
 
@@ -46,6 +54,12 @@ class Accountant: public Person, public Employee {
 private:
 	string accountantSoftware;
 public:
+	Accountant(string AccountantSoftware)
+	{
+		accountantSoftware = AccountantSoftware;
+
+	}
+
 	Accountant(string AccountantSoftware, string Name, string Surname,
 		int Age, string Sex, string Email, int salary, string company):
 		Person(Name, Surname, Age, Sex, Email),
@@ -60,4 +74,5 @@ public:
 		showEmployee();
 
 	}
+	~Accountant(){}
 };

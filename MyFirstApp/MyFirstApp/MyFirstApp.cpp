@@ -122,18 +122,35 @@ int main()
 
 	// inheritance
 	Administration admin1("Anton", "Borusenko");
-
 	// lab 4 task 11 
 	Person people1("Name", "Surname", 18, "man", "email.com");
 	Reader reader6("Antoni", "Blinkey", 46, "man", "email.com", 10000, 51681022);
 
 	// friend class
-	Discount discount1;
+	TypeOfBook type1("AudioBook", *book5);
+	TypeOfBook type2("eBook", *book4);
 
 	// multiple inheritance
+
 	/*Accountant accountant1("1C", "Marry", "Stamy", 42, "woman", "alwaysHere.com", 12000, "Apple");
 	accountant1.showAccountant();*/
 	
+
+	// overload operators
+
+	/*Reader r1(50,20), r2(10,30), result;
+	result = r1 + r2;
+	result.show();*/
+
+
+	// Costructors and destructors
+
+	/*Person people1("Name", "Surname", 18, "man", "email.com");
+	Reader reader6("Antoni", "Blinkey", 46, "man", "email.com", 10000, 51681022);
+	Employee emp1(25000, "Microsoft");
+	Accountant accountant1("1C", "Marry", "Stamy", 42, "woman", "alwaysHere.com", 12000, "Apple");*/
+
+
 	int count_of_books = 0; 
 	int option = 0, i = 0;
 	string answer;
@@ -153,6 +170,7 @@ int main()
 		cout << "\n\t\tPress 9 to View Agregation";
 		cout << "\n\t\tPress 10 to View work with static field";
 		cout << "\n\t\tPress 11 to View ";
+		cout << "\n\t\tPress 12 to select a different type of book";
 		cout << "\n\t\t----------------------------------------\n";
 		cout << "\n\t\tOption: ";
 		cin >> option;
@@ -175,8 +193,9 @@ int main()
 			// Order Book
 		case 3:
 			system("cls");
-			reader1.getInfo();
-
+			reader1.getStudent();
+			reader1.writeToFile();
+			reader1.readFromFile();
 			do
 			{
 				reader1.apply(*book1);
@@ -232,12 +251,20 @@ int main()
 		case 11:
 			admin1.getAccessCode();
 			admin1.getAdmin();
+		case 12: 
+			type1.display(*book5);
+			type2.display(*book4);
 		default:cout << "\a";
 		}
 	}
 
-	//delete []ptr;
-	//delete bk1;
+	delete book1;
+	delete book2;
+	delete book3;
+	delete book4;
+	delete book4;
+	delete reader3;
+	
 	return 0;
 }
 

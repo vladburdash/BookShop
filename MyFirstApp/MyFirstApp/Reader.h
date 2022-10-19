@@ -9,11 +9,9 @@ using namespace std;
 class Reader: public Person{
 private: 
 	int amountOfMoney;
-	int creditCard;
+	long int creditCard;
 	friend void getMaxMoney(Reader rd1, Reader rd2);
-	friend class Discount;
 public: 
-	
 	
 	Reader()
 	{
@@ -49,48 +47,34 @@ public:
 		this->amountOfMoney = amountOfMoney;
 		this->creditCard = creditCard;
 	}
+	Reader(int AmountOfMoney, int CreditCard) {
+		amountOfMoney = AmountOfMoney;
+		creditCard = CreditCard;
+	}
+	Reader operator +(Reader obj)
+	{
+		Reader tmp;
+		tmp.amountOfMoney = amountOfMoney + obj.amountOfMoney;
+		tmp.creditCard = creditCard + obj.creditCard;
+		return tmp;
+	}
+	void show()
+	{
+		cout << "amountOfMoney: " << amountOfMoney << endl;
+		cout << "creditCard: " << creditCard << endl;
+	}
 
 	~Reader() {}
 
 	int writeToFile();
 	int readFromFile();
 	void apply(Book bk);//, Reader rd);
-	void getInfo();
-	void setInfo();
+	void getStudent();
+	void setStudent();
 	string getReaderName();
 	string getReaderSurname();
 	int getAmountOfMoney();
 	void payOrder();
 };
 
-class Discount {
-	string promocode;
-	float newPrice;
-public:
-	/*Discount(string promo)
-	{
-		promocode = promo;
-	}*/
 
-	void setPromocode(Book bk)
-	{
-		
-		cout << "Do you have promocode? (yes/no)" << endl;
-		string answer;
-		cin >> answer;
-		if (answer == "yes")
-		{
-			cout << "Enter promocode: ";
-			cin >> promocode;
-			if (promocode == "Lachen" || "Zinchenko")
-			{
-				newPrice = (bk.getPrice() * 10.0) / 100.0;
-				cout << "New price: " << newPrice << endl;
-			}
-			else
-				cout << "there is no such promo code\n";
-		}
-		
-		
-	}
-};

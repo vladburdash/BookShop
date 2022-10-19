@@ -15,4 +15,5 @@ public:
 	}
 	void getAdmin(); 
 	void getAccessCode();
+	void addApplToBlackList();
 };

@@ -6,7 +6,7 @@ using namespace std;
 
 
 class Application {
-private:
+protected:
 	string ReaderName;
 	string ReaderSurname;
 	string BookName;

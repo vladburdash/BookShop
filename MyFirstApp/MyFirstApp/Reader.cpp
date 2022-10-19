@@ -4,12 +4,10 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include "Application.h"
 
-//Reader::Reader() {
-//
-//}
 
-void Reader::getInfo() {
+void Reader::getStudent() {
 	cout << "Enter your name: ";
 	cin >> Name;
 	cout << "Enter your surname: ";
@@ -40,7 +38,7 @@ int Reader::getAmountOfMoney()
 }
 
 
-void Reader::setInfo() {
+void Reader::setStudent() {
 	cout << "Name: " << Name << endl << "Surname: " << Surname << endl
 		<< "Age: " << Age << endl << "Sex: " << Sex << endl <<
 		"Email: " << Email << endl;
@@ -48,7 +46,7 @@ void Reader::setInfo() {
 
 int Reader::writeToFile() {
 
-	ofstream input_file("start.txt", ios::app);
+	ofstream input_file("readers.txt", ios::app);
 	if (input_file.fail())
 	{
 		cerr << "Error opening file";
@@ -57,14 +55,13 @@ int Reader::writeToFile() {
 	else
 	{
 
-		input_file << Name << endl;
+		input_file << "\n" << Name << endl;
 		input_file << Surname << endl;
 		input_file << Age << endl;
 		input_file << Sex << endl;
 		input_file << Email << endl;
 
 
-		//input_file.write(reinterpret_cast<char*>(&reader1), sizeof(Reader));
 	}
 	input_file.close();
 	return 0;
@@ -72,7 +69,7 @@ int Reader::writeToFile() {
 
 int Reader::readFromFile() {
 
-	ifstream result_file("start.txt");
+	ifstream result_file("readers.txt");
 	if (result_file.fail())
 	{
 		cerr << "Error opening file";
@@ -179,6 +176,7 @@ void Reader::apply(Book bk)
 // method to pay order 
 void Reader::payOrder()
 {
+	//Application tmp;
 	string ReaderName;
 	string ReaderSurname;
 	string BookName;
