@@ -39,6 +39,7 @@ public:
 	int getCount();
 };
 
+// friend class
 class TypeOfBook {
 private:
 	string type;

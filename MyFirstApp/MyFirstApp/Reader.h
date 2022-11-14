@@ -3,9 +3,8 @@ using namespace std;
 #include"Books.h"
 #include <fstream>
 #include "Person.h"
-//#include "Application.h"
 
-
+// simple inheritance
 class Reader: public Person{
 private: 
 	int amountOfMoney;
@@ -47,10 +46,12 @@ public:
 		this->amountOfMoney = amountOfMoney;
 		this->creditCard = creditCard;
 	}
+
 	Reader(int AmountOfMoney, int CreditCard) {
 		amountOfMoney = AmountOfMoney;
 		creditCard = CreditCard;
 	}
+
 	Reader operator +(Reader obj)
 	{
 		Reader tmp;

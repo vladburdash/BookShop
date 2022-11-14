@@ -34,7 +34,6 @@ void Administration::addApplToBlackList()
 	int BookPrice;
 	int BookCount;
 	string answer;
-	cout << "\n\n\n\tDELETE BOOK";
 	cout << "\n\nEnter The Reader's Surname To Delete Application: ";
 	cin >> answer;
 	ifstream fp("book_orders.txt");
@@ -42,49 +41,56 @@ void Administration::addApplToBlackList()
 	{
 		cerr << "Error opening file";
 	}
-	else
+
+	ofstream tmp("tmp.txt");
+	if (tmp.fail())
 	{
-		ofstream tmp("tmp.txt");
-		ofstream blackList("BlackList.txt");
-		while (!fp.eof())
-		{
-
-			fp >> ReaderName;
-			fp >> ReaderSurname;
-			fp >> BookName;
-			fp >> BookAuthor;
-			fp >> BookPrice;
-			fp >> BookCount;
-			if(ReaderSurname != answer)
-			{
-				cout << "Application doesn't exist";
-				break;
-			}
-			if (ReaderSurname == answer)
-			{
-				blackList << "\n" << ReaderName << endl;
-				blackList << ReaderSurname << endl;
-				blackList << BookName << endl;
-				blackList << BookAuthor << endl;
-				blackList << BookPrice << endl;
-				blackList << BookCount;
-			}
-			else
-			{
-				tmp << "\n" << ReaderName << endl;
-				tmp << ReaderSurname << endl;
-				tmp << BookName << endl;
-				tmp << BookAuthor << endl;
-				tmp << BookPrice << endl;
-				tmp << BookCount;
-			}
-		}
-		fp.close();
-		tmp.close();
-		blackList.close();
-		remove("book_orders.txt");
-		rename("tmp.txt", "book_orders.txt");
-
-
+		cerr << "Error opening file";
 	}
+	ofstream blackList("BlackList.txt", ios::app);
+	if (blackList.fail())
+	{
+		cerr << "Error opening file";
+	}
+	while (!fp.eof())
+	{
+
+		fp >> ReaderName;
+		fp >> ReaderSurname;
+		fp >> BookName;
+		fp >> BookAuthor;
+		fp >> BookPrice;
+		fp >> BookCount;
+		if (fp.eof() & ReaderSurname != answer)
+		{
+			cout << "Application doesn't exist";
+			break;
+		}
+		if (ReaderSurname == answer)
+		{
+			blackList << "\n" << ReaderName << endl;
+			blackList << ReaderSurname << endl;
+			blackList << BookName << endl;
+			blackList << BookAuthor << endl;
+			blackList << BookPrice << endl;
+			blackList << BookCount;
+		}
+		else
+		{
+			tmp << "\n" << ReaderName << endl;
+			tmp << ReaderSurname << endl;
+			tmp << BookName << endl;
+			tmp << BookAuthor << endl;
+			tmp << BookPrice << endl;
+			tmp << BookCount;
+		}
+	}
+
+	
+	fp.close();
+	tmp.close();
+	blackList.close();
+	remove("book_orders.txt");
+	rename("tmp.txt", "book_orders.txt");
+
 }

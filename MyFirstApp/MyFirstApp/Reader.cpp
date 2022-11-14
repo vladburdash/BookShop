@@ -54,14 +54,12 @@ int Reader::writeToFile() {
 
 	else
 	{
-
+		// write to file
 		input_file << "\n" << Name << endl;
 		input_file << Surname << endl;
 		input_file << Age << endl;
 		input_file << Sex << endl;
 		input_file << Email << endl;
-
-
 	}
 	input_file.close();
 	return 0;
@@ -115,13 +113,16 @@ void Reader::apply(Book bk)
 
 	else
 	{
+		// until the end of the file
 		while ((!fp.eof()))
 		{
+			// read from file
 			fp >> bookID;
 			fp >> title;
 			fp >> author;
 			fp >> price;
 			fp >> NumberOfCopies;
+			// get bookID, name of book and author of book
 			bk.getInfo(bookID, title, author);
 
 			// if haven't book to buy
@@ -141,6 +142,7 @@ void Reader::apply(Book bk)
 				cout << "Author of book: " << author << endl;
 				cout << "Price: " << price << " uah" << endl;
 				cout << "Count of books: " << ReaderCountOfBooks << endl;
+				
 				ofstream file("book_title_author.txt");
 
 				if (file.fail())
@@ -205,7 +207,7 @@ void Reader::payOrder()
 			file >> BookAuthor;
 			file >> BookPrice;
 			file >> BookCount;
-
+			// if Name from console = Name from file and Surname from console = Surname
 			if (Name == ReaderName & Surname == ReaderSurname)
 			{
 				cout << "-----Your order------";
@@ -215,8 +217,10 @@ void Reader::payOrder()
 				cout << "Order book count: " << BookCount << endl;
 				cout << "Enter your credit card: ";
 				cin >> creditCard;
+				// if Reader's count of money greater than price of book's
 				if (amountOfMoney > BookCount * BookPrice)
 				{
+					// decrease Reader's count of money for the amount of books he bought
 					amountOfMoney -= BookCount * BookPrice;
 					cout << "\nSuccessfully paid\n";
 
@@ -229,6 +233,7 @@ void Reader::payOrder()
 			}
 
 		}
+		// if end of file and Name from console not = Name from file and Surname from console not = Surname
 		if (file.eof() & (Name != ReaderName || Surname != ReaderSurname))
 		{
 			cout << "Order wasn't find" << endl;

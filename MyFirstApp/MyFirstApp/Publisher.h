@@ -9,6 +9,7 @@ private:
 	string publisherName;
 	Reader* reader;
 	Book* book;
+	// static data field
 	static int publisherIndex;
 	//const int ISBN;
 	//int& telephone;
@@ -18,6 +19,8 @@ public:
 	{
 		publisherIndex = PubIndex;
 	}
+
+	// static method
 	static void getPublisherIndex() {
 		cout << publisherIndex;
 	}

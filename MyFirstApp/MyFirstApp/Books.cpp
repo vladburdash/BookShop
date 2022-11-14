@@ -34,7 +34,7 @@ void Book::setBook()
 
 }
 
-//Book *bk = new Book();
+
 void Book::writeBook(Book bk, int current, int count) {
 	ofstream fp("book.txt", ios::app);
 	if (fp.fail())
@@ -44,6 +44,7 @@ void Book::writeBook(Book bk, int current, int count) {
 
 	else
 	{
+		// write to file
 		fp << "\n" << bookID << endl;
 		fp << bookName << endl;
 		fp << authorName << endl;
@@ -57,9 +58,6 @@ void Book::writeBook(Book bk, int current, int count) {
 			fp << numCopies << endl;
 		}
 
-		/*cout << "\nPress 1 to add more books.";
-		cout << "\nPress 2 to return to main menu.\n";
-		cout << "Enter: ";*/
 	}
 
 	fp.close();
@@ -79,11 +77,13 @@ void Book::readBook(Book bk)
 		int i = 0;
 		do
 		{
+			// read from file
 			fp >> bookID;
 			fp >> bookName;
 			fp >> authorName;
 			fp >> price;
 			fp >> numCopies;
+			// output to the console
 			cout << "\nBook ID: " << bookID;
 			cout << "\nBook Name: " << bookName;
 			cout << "\nAuthor's Name: " << authorName;
@@ -113,7 +113,7 @@ void Book::showAllBooks(Book bk)
 		cout << "===============================================================================================================\n";
 
 		int i = 0;
-
+		// until the end of the file 
 		while (!fp.eof())
 		{
 			fp >> bookID;
